@@ -18,7 +18,7 @@ catkin_make
 ## To run
 
 ```sh
-source ~/cse468_final/devel/setup.sh
+source ~/cse468_final/devel/setup.bash
 #or sh or zsh if you are using diff shell
 roslaunch cse468_final_bot main.launch
 ```
