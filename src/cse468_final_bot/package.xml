@@ -1,13 +1,14 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>cse468_final_bot</name>
-  <version>0.0.0</version>
-  <description>The cse468_final_bot package</description>
+  <version>0.0.1</version>
+  <description>A package that creates a robot in gazebo and allows the user to move it around and grab objects.</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
   <!-- <maintainer email="jane.doe@example.com">Jane Doe</maintainer> -->
-  <maintainer email="drew@todo.todo">drew</maintainer>
+  <maintainer email="drewwill@buffalo.edu">Drew Williams</maintainer>
+  <maintainer email="seschwar@buffalo.edu">Sarah Schwartz</maintainer>
 
 
   <!-- One license tag required, multiple allowed, one license per tag -->
@@ -19,7 +20,7 @@
   <!-- Url tags are optional, but multiple are allowed, one per tag -->
   <!-- Optional attribute type can be: website, bugtracker, or repository -->
   <!-- Example: -->
-  <!-- <url type="website">http://wiki.ros.org/cse468_final_bot</url> -->
+  <url type="website">https://github.com/jreneew2/cse468_final</url>
 
 
   <!-- Author tags are optional, multiple are allowed, one per tag -->
