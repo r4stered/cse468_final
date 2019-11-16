@@ -25,5 +25,7 @@ roslaunch cse468_final_bot main.launch
 
 ## Blog Post Updates
 
+[Medium Articles](https://medium.com/cse-468-568-robotic-algorithms "Main Publication Page")
+
 Drew Williams – drewwill@buffalo.edu \
 Sarah Schwartz – seschwar@buffalo.edu
