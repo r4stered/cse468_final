@@ -7,6 +7,11 @@
     <xacro:property name="wheel_radius" value="0.0762"/>
     <xacro:property name="wheel_thickness" value="0.02"/>
 
+    <xacro:property name="wheel_height" value="-0.01"/>
+    <xacro:property name="center_wheel_drop" value="0.003175"/>
+    <xacro:property name="wheel_base_seperation" value="0.02"/>
+    <xacro:property name="front_rear_spacing" value="0.05"/>
+
     <xacro:property name="pi" value="3.1415"/>
 
     <material name="blue">
@@ -32,13 +37,13 @@
             <parent link="base_link"/>
             <child link="${position}_${side}_wheel"/>
             <xacro:if value="${position == 'front'}">
-                <origin xyz="${(drivebase_length / 2) + .01} ${((drivebase_width / 2) + .01) * reflect} -0.01"/>
+                <origin xyz="${(drivebase_length / 2) - front_rear_spacing} ${((drivebase_width / 2) + wheel_base_seperation) * reflect} ${wheel_height}"/>
             </xacro:if>
             <xacro:if value="${position == 'center'}">
-                <origin xyz="0 ${((drivebase_width / 2) + .01) * reflect} -0.013175"/>
+                <origin xyz="0 ${((drivebase_width / 2) + wheel_base_seperation) * reflect} ${wheel_height - center_wheel_drop}"/>
             </xacro:if>
             <xacro:if value="${position == 'rear'}">
-                <origin xyz="${-1 * ((drivebase_length / 2) + .01)} ${((drivebase_width / 2) + .01) * reflect} -0.01"/>
+                <origin xyz="${-1 * ((drivebase_length / 2) - front_rear_spacing)} ${((drivebase_width / 2) + wheel_base_seperation) * reflect} ${wheel_height}"/>
             </xacro:if>
             <axis xyz="0 1 0"/>
         </joint>
