@@ -6,7 +6,7 @@
     <link name="base_link">
         <visual>
             <geometry>
-                <box size="0.8 0.7 0.1"/>
+                <box size="${drivebase_length} ${drivebase_width} ${drivebase_height}"/>
             </geometry>
             <material name="blue"/>
         </visual>
