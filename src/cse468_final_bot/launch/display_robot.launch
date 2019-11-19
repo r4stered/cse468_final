@@ -1,6 +1,6 @@
 <launch>
 
-  <arg name="model" default="$(find cse468_final_bot)/urdf/robot.urdf"/>
+  <arg name="model" default="$(find cse468_final_bot)/urdf/robot.xacro"/>
   <arg name="gui" default="true" />
   <arg name="rvizconfig" default="$(find cse468_final_bot)/rviz/urdf.rviz" />
 

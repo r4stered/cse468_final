@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<robot name="drivebase_macros" xmlns:xacro="http://ros.org/wiki/xacro">
+    <xacro:property name="drivebase_length" value="0.8"/>
+    <xacro:property name="drivebase_width" value="0.7"/>
+    <xacro:property name="drivebase_height" value="0.1"/>
+
+    <xacro:property name="wheel_radius" value="0.0762"/>
+    <xacro:property name="wheel_thickness" value="0.02"/>
+
+    <xacro:property name="pi" value="3.1415"/>
+
+    <material name="blue">
+        <color rgba="0 0 0.8 1"/>
+    </material>
+
+    <material name="white">
+        <color rgba="1 1 1 1"/>
+    </material>
+
+    <xacro:macro name="wheel" params="side position reflect">
+        <link name="${position}_${side}_wheel">
+            <visual>
+                <geometry>
+                    <cylinder length="${wheel_thickness}" radius="${wheel_radius}"/>
+                </geometry>
+                <origin rpy="0 ${pi / 2} ${pi / 2}" xyz="0 0 0"/>
+                <material name="white"/>
+            </visual>
+        </link>
+
+        <joint name="base_to_${position}_${side}_wheel" type="continuous">
+            <parent link="base_link"/>
+            <child link="${position}_${side}_wheel"/>
+            <xacro:if value="${position == 'front'}">
+                <origin xyz="${(drivebase_length / 2) + .01} ${((drivebase_width / 2) + .01) * reflect} -0.01"/>
+            </xacro:if>
+            <xacro:if value="${position == 'center'}">
+                <origin xyz="0 ${((drivebase_width / 2) + .01) * reflect} -0.013175"/>
+            </xacro:if>
+            <xacro:if value="${position == 'rear'}">
+                <origin xyz="${-1 * ((drivebase_length / 2) + .01)} ${((drivebase_width / 2) + .01) * reflect} -0.01"/>
+            </xacro:if>
+            <axis xyz="0 1 0"/>
+        </joint>
+    </xacro:macro>
+
+    <xacro:macro name="robot_side" params="side reflect">
+        <xacro:wheel side="${side}" position="front" reflect="${reflect}"/>
+        <xacro:wheel side="${side}" position="center" reflect="${reflect}"/>
+        <xacro:wheel side="${side}" position="rear" reflect="${reflect}"/>
+    </xacro:macro>
+</robot>
