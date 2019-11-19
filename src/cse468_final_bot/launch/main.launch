@@ -1,0 +1,26 @@
+<launch>
+  <arg name="model" default="$(find cse468_final_bot)/urdf/robot.xacro"/>
+  <arg name="rvizconfig" default="$(find cse468_final_bot)/rviz/urdf.rviz" />
+
+  <include file="$(find cse468_final_bot)/launch/sim.launch">
+    <arg name="model" value="$(arg model)" />
+  </include>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" />
+
+  <rosparam command="load"
+    file="$(find cse468_final_bot)/config/joints.yaml"
+    ns="cse468_bot_joint_state_controller" />
+
+  <rosparam command="load"
+    file="$(find cse468_final_bot)/config/diff_drive.yaml"
+    ns="cse468_bot_diff_drive_controller" />
+
+  <node name="cse468_bot_controller_spawner" pkg="controller_manager" type="spawner"
+    args="cse468_bot_joint_state_controller
+          cse468_bot_diff_drive_controller"/>
+
+  <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
+    <param name="default_topic" value="/cse468_bot_diff_drive_controller/cmd_vel"/>
+  </node>
+</launch>
