@@ -5,11 +5,11 @@
     <xacro:property name="drivebase_height" value="0.1"/>
 
     <xacro:property name="wheel_radius" value="0.0762"/>
-    <xacro:property name="wheel_thickness" value="0.02"/>
+    <xacro:property name="wheel_thickness" value="0.0508"/>
 
     <xacro:property name="wheel_height" value="-0.01"/>
     <xacro:property name="center_wheel_drop" value="0.003175"/>
-    <xacro:property name="wheel_base_seperation" value="0.02"/>
+    <xacro:property name="wheel_base_seperation" value="0.03"/>
     <xacro:property name="front_rear_spacing" value="0.05"/>
 
     <xacro:property name="pi" value="3.1415"/>
@@ -31,6 +31,16 @@
                 <origin rpy="0 ${pi / 2} ${pi / 2}" xyz="0 0 0"/>
                 <material name="white"/>
             </visual>
+            <collision>
+                <geometry>
+                    <cylinder length="${wheel_thickness}" radius="${wheel_radius}"/>
+                </geometry>
+                <origin rpy="0 ${pi / 2} ${pi / 2}" xyz="0 0 0"/>
+            </collision>
+            <inertial>
+                <mass value="0.2630836"/>
+                <inertia ixx="0.000438" ixy="0.0" ixz="0.0" iyy="0.000438" iyz="0.0" izz="0.000763"/>
+            </inertial>
         </link>
 
         <joint name="base_to_${position}_${side}_wheel" type="continuous">

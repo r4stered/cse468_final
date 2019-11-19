@@ -10,6 +10,15 @@
             </geometry>
             <material name="blue"/>
         </visual>
+        <collision>
+            <geometry>
+                <box size="${drivebase_length} ${drivebase_width} ${drivebase_height}"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="25"/>
+            <inertia ixx="1.35416" ixy="0.0" ixz="0.0" iyy="2.35416" iyz="0.0" izz="1.04166"/>
+        </inertial>
     </link>
 
     <xacro:robot_side side="left" reflect="1"/>
