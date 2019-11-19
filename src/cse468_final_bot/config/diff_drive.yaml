@@ -4,6 +4,8 @@ publish_rate: 50
 left_wheel: ['base_to_front_left_wheel', 'base_to_center_left_wheel', 'base_to_rear_left_wheel']
 right_wheel: ['base_to_front_right_wheel', 'base_to_center_right_wheel', 'base_to_rear_right_wheel']
 
+wheel_separation: .8108
+
 # Odometry covariances for the encoder output of the robot. These values should
 # be tuned to your robot's sample odometry data, but these values are a good place
 # to start
@@ -19,7 +21,7 @@ linear:
     has_velocity_limits    : true
     max_velocity           : 5.7912   # m/s
     has_acceleration_limits: true
-    max_acceleration       : 0.6   # m/s^2
+    max_acceleration       : 3   # m/s^2
 angular:
   z:
     has_velocity_limits    : true
