@@ -26,14 +26,14 @@
                 <geometry>
                     <cylinder length="${wheel_thickness}" radius="${wheel_radius}"/>
                 </geometry>
-                <origin rpy="0 ${pi / 2} ${pi / 2}" xyz="0 0 0"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
                 <material name="white"/>
             </visual>
             <collision>
                 <geometry>
                     <cylinder length="${wheel_thickness}" radius="${wheel_radius}"/>
                 </geometry>
-                <origin rpy="0 ${pi / 2} ${pi / 2}" xyz="0 0 0"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
             </collision>
             <inertial>
                 <mass value="0.2630836"/>
@@ -45,15 +45,15 @@
             <parent link="base_link"/>
             <child link="${position}_${side}_wheel"/>
             <xacro:if value="${position == 'front'}">
-                <origin xyz="${(drivebase_length / 2) - front_rear_spacing} ${((drivebase_width / 2) + wheel_base_seperation) * reflect} ${wheel_height}"/>
+                <origin rpy="${pi / 2} ${pi / 2} 0" xyz="${(drivebase_length / 2) - front_rear_spacing} ${((drivebase_width / 2) + wheel_base_seperation) * reflect} ${wheel_height}"/>
             </xacro:if>
             <xacro:if value="${position == 'center'}">
-                <origin xyz="0 ${((drivebase_width / 2) + wheel_base_seperation) * reflect} ${wheel_height - center_wheel_drop}"/>
+                <origin rpy="${pi / 2} ${pi / 2} 0" xyz="0 ${((drivebase_width / 2) + wheel_base_seperation) * reflect} ${wheel_height - center_wheel_drop}"/>
             </xacro:if>
             <xacro:if value="${position == 'rear'}">
-                <origin xyz="${-1 * ((drivebase_length / 2) - front_rear_spacing)} ${((drivebase_width / 2) + wheel_base_seperation) * reflect} ${wheel_height}"/>
+                <origin rpy="${pi / 2} ${pi / 2} 0" xyz="${-1 * ((drivebase_length / 2) - front_rear_spacing)} ${((drivebase_width / 2) + wheel_base_seperation) * reflect} ${wheel_height}"/>
             </xacro:if>
-            <axis xyz="0 1 0"/>
+            <axis xyz="0 0 1"/>
         </joint>
 
         <transmission name="${position}_${side}_wheel_trans">
@@ -62,7 +62,7 @@
                 <mechanicalReduction>7.44</mechanicalReduction>
             </actuator>
             <joint name="base_to_${position}_${side}_wheel">
-                <hardwareInterface>VelocityJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
             </joint>
         </transmission>
 
