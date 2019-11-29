@@ -2,7 +2,8 @@
 <robot name="robot_with_arm" xmlns:xacro="http://ros.org/wiki/xacro">
 
     <xacro:include filename="$(find cse468_final_bot)/urdf/drivebase_macro.xacro"/>
-
+    <xacro:include filename="$(find cse468_final_bot)/urdf/arm_macro.xacro"/>
+    
     <link name="base_link">
         <visual>
             <geometry>
