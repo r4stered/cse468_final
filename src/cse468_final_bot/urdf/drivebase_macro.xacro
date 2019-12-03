@@ -71,8 +71,8 @@
             <mu2 value="100.0"/>
             <kp value="10000000.0" />
             <kd value="1.0" />
-        <material>Gazebo/Grey</material>
-    </gazebo>
+            <material>Gazebo/Grey</material>
+        </gazebo>
     </xacro:macro>
 
     <xacro:macro name="robot_side" params="side reflect">

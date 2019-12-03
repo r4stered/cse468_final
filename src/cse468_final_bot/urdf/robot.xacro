@@ -2,7 +2,6 @@
 <robot name="robot_with_arm" xmlns:xacro="http://ros.org/wiki/xacro">
 
     <xacro:include filename="$(find cse468_final_bot)/urdf/drivebase_macro.xacro"/>
-    <xacro:include filename="$(find cse468_final_bot)/urdf/arm_macro.xacro"/>
     
     <link name="base_link">
         <visual>
@@ -24,6 +23,12 @@
 
     <xacro:robot_side side="left" reflect="1"/>
     <xacro:robot_side side="right" reflect="-1"/>
+
+
+
+    <!--<xacro:include filename="$(find cse468_final_bot)/urdf/arm_macro.xacro"/>-->
+    <xacro:include filename="$(find cse468_final_bot)/urdf/laser.xacro"/>
+    <xacro:include filename="$(find cse468_final_bot)/urdf/kinect.xacro"/>
 
     <gazebo>
         <static>false</static>
