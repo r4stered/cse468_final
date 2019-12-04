@@ -26,9 +26,9 @@
 
 
 
-    <!--<xacro:include filename="$(find cse468_final_bot)/urdf/arm_macro.xacro"/>-->
+    <xacro:include filename="$(find cse468_final_bot)/urdf/arm_macro.xacro"/>
     <xacro:include filename="$(find cse468_final_bot)/urdf/laser.xacro"/>
-    <xacro:include filename="$(find cse468_final_bot)/urdf/kinect.xacro"/>
+   <xacro:include filename="$(find cse468_final_bot)/urdf/kinect.xacro"/>
 
     <gazebo>
         <static>false</static>
