@@ -2,8 +2,9 @@ gmapping_node:
     base_frame: base_link
     map_frame: map
     odom_frame: odom
-    linearUpdate: 0.1
-    angularUpdate: 0.1
+    linearUpdate: 0.05
+    angularUpdate: 0.05
     temporalUpdate: 0.25
     maxUrange: 11.0
     maxRange: 13.0
+    map_update_interval: .1
