@@ -1,0 +1,9 @@
+controller_list:
+  - name: fake_bot_arm_controller
+    joints:
+      - joint_base_mid
+      - joint_mid_top
+  - name: fake_hand_controller
+    joints:
+      - left_gripper_joint
+      - right_gripper_joint

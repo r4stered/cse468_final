@@ -168,4 +168,39 @@
             </geometry>
         </collision>
     </link>
+
+    <transmission name="middle_link_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <actuator name="middle_link_motor">
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+        <joint name="joint_base_mid">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+    </transmission>
+    <gazebo reference="middle_link">
+        <mu1 value="0.01"/>
+        <mu2 value="0.01"/>
+        <kp value="10000000.0"/>
+        <kd value="1.0" />
+        <material>Gazebo/gray</material>
+    </gazebo>
+
+
+    <transmission name="top_link_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <actuator name="top_link_motor">
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+        <joint name="joint_mid_top">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+    </transmission>
+    <gazebo reference="top_link">
+        <mu1 value="0.01"/>
+        <mu2 value="0.01"/>
+        <kp value="10000000.0"/>
+        <kd value="1.0" />
+        <material>Gazebo/gray</material>
+    </gazebo>
 </robot>

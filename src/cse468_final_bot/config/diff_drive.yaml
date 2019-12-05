@@ -44,3 +44,5 @@ bot_diff_drive_controller:
     base_link_to_fr_diff_wheel: {p: 10.0, i: 0.01, d: 0.0}
     base_link_to_mr_diff_wheel: {p: 10.0, i: 0.01, d: 0.0}
     base_link_to_rr_diff_wheel: {p: 10.0, i: 0.01, d: 0.0}
+    joint_base_mid: {p: 100.0, i: 0.01, d: 0}
+    joint_mid_top: {p: 100.0, i: 0.01, d: 0}

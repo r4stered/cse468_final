@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: cse468_final_bot
+    relative_path: urdf/robot.xacro
+    xacro_args: "--inorder "
+  SRDF:
+    relative_path: config/robot_with_arm.srdf
+  CONFIG:
+    author_name: Drew Williams
+    author_email: drewwill@buffalo.edu
+    generated_timestamp: 1575560178
