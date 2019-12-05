@@ -25,4 +25,10 @@
     <param name="publish_frequency" type="double" value="30.0" />
   </node>
 
+  <rosparam command="load" file="$(find cse468_final_bot)/config/odom_drivetrain.yaml"/>
+  
+  <node pkg="robot_localization" type="ukf_localization_node" name="robot_odom" clear_params="true">
+    <remap from="odometry/filtered" to="odom"/>
+  </node>
+
 </launch>

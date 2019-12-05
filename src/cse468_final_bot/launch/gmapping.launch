@@ -1,0 +1,8 @@
+<launch>
+    <rosparam command="load" file="$(find cse468_final_bot)/config/gmapping.yaml"/>
+    
+    <node pkg="gmapping" type="slam_gmapping" name="gmapping_node">
+        <remap from="laser/scan" to="/scan" />
+    </node>
+    
+</launch>

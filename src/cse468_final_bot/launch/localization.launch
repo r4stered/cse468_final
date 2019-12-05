@@ -1,0 +1,37 @@
+<launch>
+    
+    <arg name="map_file"     default="$(find cse468_final_bot)/worlds/test_map.yaml" />
+    <arg name="odom_type"    default="diff-corrected"/>
+    
+    <rosparam command="load" file="$(find cse468_final_bot)/config/amcl.yaml"/>
+    
+    <!--- Load map -->
+    <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)"/>
+    
+    <node pkg="tf" type="static_transform_publisher" name="map_odom_broadcaster"
+      args="0 0 0 0 0 0 map odom 100"/>
+
+    <node name="amcl_localization" pkg="amcl" type="amcl">
+        <remap from="scan" to="scan"/>
+        <param name="odom_frame_id" value="odom"/>
+        <param name="odom_model_type" value="diff-corrected"/>
+        <param name="base_frame_id" value="base_link"/>
+        <param name="update_min_d" value="0.5"/>
+        <param name="update_min_a" value="1.0"/>
+    </node>
+
+    <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+        <rosparam file="$(find cse468_final_bot)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find cse468_final_bot)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find cse468_final_bot)/config/local_costmap_params.yaml" command="load" />
+        <rosparam file="$(find cse468_final_bot)/config/global_costmap_params.yaml" command="load" />
+        <rosparam file="$(find cse468_final_bot)/config/base_local_planner_params.yaml" command="load" />
+        
+        <remap from="cmd_vel" to="bot_diff_drive_controller/cmd_vel"/>
+        <remap from="odom" to="odom"/>
+        <remap from="scan" to="/scan"/>
+        <param name="move_base/DWAPlannerROS/yaw_goal_tolerance" value="1.0"/>
+        <param name="move_base/DWAPlannerROS/xy_goal_tolerance" value="1.0"/>
+    </node>
+
+</launch>

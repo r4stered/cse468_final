@@ -1,0 +1,3 @@
+<launch>
+    <include file="$(find cse468_final_bot)/launch/gmapping.launch"/>
+</launch>
