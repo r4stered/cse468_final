@@ -22,4 +22,10 @@
   <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
     <param name="default_topic" value="/bot_diff_drive_controller/cmd_vel"/>
   </node>
+
+   <node name="joint_state_publisher" pkg="joint_state_publisher"
+        type="joint_state_publisher">
+    <param name="use_gui" value="TRUE"/>
+  </node>
+
 </launch>
