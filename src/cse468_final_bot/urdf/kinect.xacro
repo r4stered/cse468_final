@@ -24,7 +24,7 @@
 
     <joint name="camera_joint" type="fixed">
         <axis xyz="0.0 0.0 0.0"/>
-        <origin xyz="${drivebase_length/2} 0 ${drivebase_height + .01}" rpy="0.0 0.0 0.0"/>
+        <origin xyz=".35 0 0.2" rpy="0.0 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="camera_link"/>
     </joint>
@@ -51,11 +51,11 @@
                     will control the frame rate. -->
                 <updateRate>0.0</updateRate>
                 <cameraName>camera_ir</cameraName>
-                <imageTopicName>/camera/color/image_raw</imageTopicName>
-                <cameraInfoTopicName>/camera/color/camera_info</cameraInfoTopicName>
-                <depthImageTopicName>/camera/depth/image_raw</depthImageTopicName>
-                <depthImageCameraInfoTopicName>/camera/depth/camera_info</depthImageCameraInfoTopicName>
-                <pointCloudTopicName>/camera/depth/points</pointCloudTopicName>
+                <imageTopicName>color/image_raw</imageTopicName>
+                <cameraInfoTopicName>color/camera_info</cameraInfoTopicName>
+                <depthImageTopicName>depth/image_raw</depthImageTopicName>
+                <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
+                <pointCloudTopicName>depth/points</pointCloudTopicName>
                 <frameName>camera_link</frameName>
                 <pointCloudCutoff>0.5</pointCloudCutoff>
                 <pointCloudCutoffMax>3.0</pointCloudCutoffMax>

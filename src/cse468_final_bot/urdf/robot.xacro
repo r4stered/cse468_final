@@ -2,29 +2,13 @@
 <robot name="robot_with_arm" xmlns:xacro="http://ros.org/wiki/xacro">
 
     <xacro:include filename="$(find cse468_final_bot)/urdf/drivebase_macro.xacro"/>
+    <xacro:include filename="$(find cse468_final_bot)/urdf/chassis.xacro" />
     
-    <link name="base_link">
-        <visual>
-            <geometry>
-                <box size="${drivebase_length} ${drivebase_width} ${drivebase_height}"/>
-            </geometry>
-            <material name="blue"/>
-        </visual>
-        <collision>
-            <geometry>
-                <box size="${drivebase_length} ${drivebase_width} ${drivebase_height}"/>
-            </geometry>
-        </collision>
-        <inertial>
-            <mass value="55"/>
-            <inertia ixx="1.35416" ixy="0.0" ixz="0.0" iyy="2.35416" iyz="0.0" izz="1.04166"/>
-        </inertial>
-    </link>
+    <link name="base_link"/>
 
-    <xacro:robot_side side="left" reflect="1"/>
-    <xacro:robot_side side="right" reflect="-1"/>
+    <xacro:robot_chassis name="chassis" parent="base_link" z_offset="0.0" chassis_length="0.8128" chassis_width="0.7112" chassis_height="0.1524" chassis_mass="50"/>
 
-
+    <xacro:six_wheel_diff_drive name="tank_drive" parent="base_link" z_offset="0.0" drop_wheel_height="0.003175" wheel_separation="0.6096" wheelbase_length="0.6096" wheel_radius="0.1016" wheel_width="0.0381" wheel_mass="1"/>
 
     <!--<xacro:include filename="$(find cse468_final_bot)/urdf/arm_macro.xacro"/>-->
     <xacro:include filename="$(find cse468_final_bot)/urdf/laser.xacro"/>
